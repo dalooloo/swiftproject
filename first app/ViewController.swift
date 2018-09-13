@@ -9,13 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var buttonCount = 0
+    //var buttonCount = 0
 
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomtextField: UITextField!
+    @IBOutlet weak var additionSwitch: UISwitch!
     
     @IBAction func buttontap(_ sender: Any) {
+//print(topTextField.text!)
+//print(bottomtextField.text!)
+        
+        let addition = additionSwitch.isOn
+        if addition {
+          let sum = Double(topTextField.text!)! + Double(bottomtextField.text!)!
+            myLabel.text = "\(topTextField.text!) + \(bottomtextField.text!) = \(sum)"
+            
+        } else {
+            let sum = Double(topTextField.text!)! - Double(bottomtextField.text!)!
+            myLabel.text = "\(topTextField.text!) - \(bottomtextField.text!) = \(sum)"
+        }
+        
+        //myLabel.text = String(total)
+        //myLabel.text = "the total is ...\(total)"
+        
+        //myLabel.text = "\(topTextField.text!) + \(bottomtextField.text!) = \(total)"
         
         
+        
+        
+       /*
         buttonCount = buttonCount + 1
         print(buttonCount)
         if buttonCount >= 10 {
@@ -34,8 +57,9 @@ class ViewController: UIViewController {
             view.backgroundColor = UIColor.red
             myLabel.text = "you have reached the limit"
         }
-        
+        */
     }
+    @IBOutlet weak var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
